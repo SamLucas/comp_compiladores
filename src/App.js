@@ -2,16 +2,26 @@ import React, { useState } from "react";
 
 import { Container } from "./styles";
 
+import fixfordesfix from 'src/assets/fixfordesfix.png'
+
 export default function App() {
-  const [result, setResult] = useState();
-  const [expression, setExpression] = useState("1*3/3-6+7*7/3");
+  const [result, setResult] = useState("Sua resposta...");
+  const [expression, setExpression] = useState("");
 
   const Preferences = c => (c === "*" ? 3 : c === "/" ? 2 : 1);
 
   const CompareBigger = (exp1, exp2) => Preferences(exp1) < Preferences(exp2);
 
-  const handleSubmite = e => {
-    e.preventDefault();
+  //            v
+  // e: 1+9*8/3-4
+  // p: -+
+  // r: 198*3/4
+
+
+
+
+
+  const handleSubmite = () => {
 
     var result = "";
     var pilha = [];
@@ -30,23 +40,32 @@ export default function App() {
       }
     }
 
-    result += pilha.shift();
+    pilha.map(ele => result += ele);
     setResult(result);
   };
 
   return (
     <Container>
-      <form onSubmit={handleSubmite}>
-        <input
-          type="text"
-          value={expression}
-          onChange={e => setExpression(e.target.value)}
-          placeholder="Digite "
-        />
-        <input type="submit" value="Enviar" />
-      </form>
+      <div>
+        <h1>fixfordesfix</h1>
 
-      <p>{result}</p>
+        <div>
+          <input
+            type="text"
+            value={expression}
+            onChange={e => setExpression(e.target.value)}
+            onSubmit={handleSubmite}
+            placeholder="Digite sua exoressão.. "
+          />
+
+          <p>{result}</p>
+        </div>
+
+        <button onClick={handleSubmite}>Enviar</button>
+      </div>
+      <img src={fixfordesfix} alt="" />
     </Container>
   );
 }
+
+// resultado correto => 19*83/4-+
