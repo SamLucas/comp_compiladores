@@ -1,21 +1,22 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Project } from "./styles";
 
 export default function dashboard() {
   return (
     <Container>
-      <h1>Projetos</h1>
-      <p>Projetos catalogados da diciplica de compiladores.</p>
-
-      <ul>
-        <li>
+      <div className="header">
+        <h1>Projetos</h1>
+        <p>Projetos catalogados da diciplica de compiladores.</p>
+      </div>
+      <div className="grid">
+        <Project type={"des"}>
           <h1>des(fixforfix)</h1>
-        </li>
-        <li>
+        </Project>
+        <Project type={"reg"}>
           <h1>regex</h1>
-        </li>
-      </ul>
+        </Project>
+      </div>
     </Container>
   );
 }

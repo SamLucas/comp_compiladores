@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 import { Colors } from "./utils";
+import ColorDashBoard from "../dashboard/colors";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   /* background-color: ${Colors.first}; */
-  background-image: linear-gradient(-45deg, ${Colors.first},${Colors.second}, ${Colors.third});
-
+  background-image: ${ColorDashBoard.background.regex};
   min-height: 100vh;
 
   h1.title {

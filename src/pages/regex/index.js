@@ -9,25 +9,29 @@ export default function Regex() {
   const [textRegex, setTextRegex] = useState("Resultado do regex...");
 
   const getHighlightedText = keys => {
-    const regex = `[${keys}^]`;
-    const new_text = Text.split(" ").map((part, i) => (
-      <span
-        key={i}
-        style={
-          part.match(regex) ? { fontWeight: "bold", color: Colors.fourth } : {}
-        }
-      >
-        {part} {""}
-      </span>
-    ));
+    if (keys) {
+      const regex = `[${keys}^]`;
+      const new_text = Text.split(" ").map((part, i) => (
+        <span
+          key={i}
+          style={
+            part.match(regex)
+              ? { fontWeight: "bold", color: Colors.fourth }
+              : {}
+          }
+        >
+          {part} {""}
+        </span>
+      ));
 
-    setText(new_text);
-    setTextRegex(regex);
+      setText(new_text);
+      setTextRegex(regex);
+    } else setTextRegex("Resultado do regex...");
   };
 
   return (
     <Container>
-      <h1 className="title">Hegex</h1>
+      <h1 className="title">Regex</h1>
       <div className="text">
         <input
           type="text"
