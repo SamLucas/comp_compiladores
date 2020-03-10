@@ -1,3 +1,5 @@
+// Codigo feito em javascript com reactjs (Samuel, Vanessa, Leonardo)
+
 import React, { useState } from "react";
 
 import { Container } from "./styles";

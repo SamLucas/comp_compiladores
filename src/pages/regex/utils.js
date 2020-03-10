@@ -1,9 +1,9 @@
 export const Colors = {
-  first: "#4A7C59",
-  second: "#68B0AB",
-  third: "#8FC0A9",
-  fourth: "#C8D5B9",
-  fiveth: "#FAF3DD"
+  first: "#1D3461",
+  second: "#1F487E",
+  third: "#247BA0",
+  fourth: "#FB3640",
+  fiveth: "#605F5E"
 };
 
 export const Text = `What is Lorem Ipsum?

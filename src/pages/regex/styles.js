@@ -15,7 +15,7 @@ export const Container = styled.div`
     margin-top: 50px;
     margin-bottom: -30px;
     font-size: 60px;
-    color: ${Colors.fiveth};
+    color: ${Colors.third};
   }
 
   div.text {
