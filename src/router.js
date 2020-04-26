@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashBoard from "src/pages/dashboard";
 import Desfixforfix from "src/pages/des(fixforfix)";
 import Regex from "src/pages/regex";
+import Ceasy from "src/pages/ceasy";
 
 export default function Rotas() {
   return (
@@ -19,6 +20,9 @@ export default function Rotas() {
         </Route>
         <Route path="/desfixforfix">
           <Desfixforfix />
+        </Route>
+        <Route path="/ceasy">
+          <Ceasy />
         </Route>
       </Switch>
     </Router>

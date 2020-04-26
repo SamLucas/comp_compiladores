@@ -16,6 +16,9 @@ export default function dashboard() {
         <Project type={"reg"}>
           <h1>regex</h1>
         </Project>
+        <Project type={"ceasy"}>
+          <h1>Ceasy</h1>
+        </Project>
       </div>
     </Container>
   );

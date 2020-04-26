@@ -31,16 +31,20 @@ export const Container = styled.div`
 const PropsBackGrounds = {
   des: {
     back: `background: ${Color.background.des_fixforfix};`,
-    link: "desfixforfix"
+    link: "desfixforfix",
   },
   reg: {
     back: `background-image: ${Color.background.regex};`,
-    link: "regex"
-  }
+    link: "regex",
+  },
+  ceasy: {
+    back: `background-image: red;`,
+    link: "ceasy",
+  },
 };
 
-export const Project = styled(Link).attrs(props => ({
-  to: `/${PropsBackGrounds[props.type].link}`
+export const Project = styled(Link).attrs((props) => ({
+  to: `/${PropsBackGrounds[props.type].link}`,
 }))`
   display: flex;
   list-style: none;
@@ -53,7 +57,7 @@ export const Project = styled(Link).attrs(props => ({
   box-shadow: 1.5px 3px rgba(0, 0, 0, 0.2);
   text-decoration: none;
 
-  ${props => PropsBackGrounds[props.type].back};
+  ${(props) => PropsBackGrounds[props.type].back};
 
   h1 {
     color: white;
