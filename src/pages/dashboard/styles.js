@@ -38,7 +38,7 @@ const PropsBackGrounds = {
     link: "regex",
   },
   ceasy: {
-    back: `background-image: red;`,
+    back: `background-color: #084C7C;`,
     link: "ceasy",
   },
 };

@@ -4,12 +4,11 @@ import "./teste.scss";
 import Ceasy from "./CeasyRender";
 import cseasyFile from "./styles_example.ceasy";
 
-import { debounceEvent } from "./scripts";
-
 export default function CeasyContent() {
   const [coreCeasy, setCoreCeasy] = useState("");
   const [codeCeasy, setCodeCeasy] = useState("");
   const [tokens, setTokens] = useState([]);
+  const [errorInformation, setErrorInformation] = useState([]);
   const [codeCompilateCeasy, setCodeCompilateCeasy] = useState("");
 
   const [indexTab, setIndexTable] = useState(0);
@@ -20,10 +19,18 @@ export default function CeasyContent() {
       const stringFile = await cseasy.readFile(cseasyFile);
       setCoreCeasy(cseasy);
       setCodeCeasy(stringFile);
-      // console.log(stringFile);
     };
     loadScript();
   }, []);
+
+  const debounceEvent = (fn, params, wait = 1000, time) => {
+    clearTimeout(
+      time,
+      (time = setTimeout(() => {
+        fn(params);
+      }, wait))
+    );
+  };
 
   useEffect(() => {
     const loadCore = async (codeCeasy) => {
@@ -33,11 +40,15 @@ export default function CeasyContent() {
         codeCeasy
       );
 
+      const errorsInformations = cseasy.getErrors(codeCeasy);
+
       setTokens(indetificationsTokens);
       setCodeCompilateCeasy(response);
+      setErrorInformation(errorsInformations);
+      errorsInformations.length > 0 && setIndexTable(2);
     };
 
-    loadCore(codeCeasy);
+    debounceEvent(loadCore, codeCeasy, 2000);
   }, [codeCeasy, coreCeasy]);
 
   return (
@@ -57,7 +68,7 @@ export default function CeasyContent() {
             cols="30"
             rows="10"
             value={codeCeasy}
-            spellcheck="false"
+            spellCheck="false"
             onChange={(e) => {
               setCodeCeasy(e.target.value);
               debounceEvent(() => {
@@ -80,6 +91,15 @@ export default function CeasyContent() {
             >
               Table
             </li>
+            <li
+              className={indexTab === 2 ? "active" : ""}
+              onClick={() => setIndexTable(2)}
+            >
+              Debug{" "}
+              {errorInformation.length > 0 && (
+                <span className="badge">{errorInformation.length}</span>
+              )}
+            </li>
           </ul>
 
           {indexTab === 0 ? (
@@ -89,10 +109,10 @@ export default function CeasyContent() {
               className="result"
               value={codeCompilateCeasy}
               required
-              readonly
-              spellcheck="false"
+              readOnly
+              spellCheck="false"
             />
-          ) : (
+          ) : indexTab === 1 ? (
             <table>
               <thead className="headtable">
                 <tr>
@@ -102,12 +122,36 @@ export default function CeasyContent() {
                 </tr>
               </thead>
               <tbody>
-                {console.log(tokens)}
                 {tokens.map((ele) => (
-                  <tr>
+                  <tr key={JSON.stringify(ele)}>
                     <td>{ele.word}</td>
                     <td>{ele.token}</td>
                     <td>{ele.lines?.join(", ")}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <table>
+              <thead className="headtable">
+                <tr>
+                  <td>Linha</td>
+                  <td>Token</td>
+                  <td>Informação</td>
+                </tr>
+              </thead>
+              <tbody>
+                {errorInformation.map((ele) => (
+                  <tr key={JSON.stringify(ele)}>
+                    <td>{ele.line}</td>
+                    <td>{ele.errorToken}</td>
+                    <td>
+                      {ele.errorToken.indexOf("]") >= 0
+                        ? "Erro ao fechar."
+                        : ele.errorToken.indexOf("[") >= 0
+                        ? "Erro ao abrir."
+                        : "Erro inesperado."}
+                    </td>
                   </tr>
                 ))}
               </tbody>

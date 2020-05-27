@@ -23,8 +23,6 @@ div.container {
     background-repeat: no-repeat;
   }
 
-  
-
   div.header {
     height: 10px;
     flex: 0.1;
@@ -88,7 +86,6 @@ div.container {
           cursor: pointer;
           margin-right: 10px;
           background-color: #1098F7;
-
         }
       }
 
@@ -131,7 +128,7 @@ div.container {
 
         tbody {
           tr td {
-          padding: 10px 5px;
+            padding: 10px 5px;
           }
         }
       }
@@ -140,18 +137,6 @@ div.container {
         margin-top: 1x;
         padding: 15px 0px;
 
-        li.active {
-          display: inline;
-          list-style: none;
-          text-align: center;
-          padding: 10px 25px;
-          text-decoration: none;
-          border-radius: 10px;
-          color: white;
-          cursor: pointer;
-          margin-right: 10px;
-          background-color: #084C7C;
-        }
 
         li {
           display: inline;
@@ -164,6 +149,30 @@ div.container {
           cursor: pointer;
           margin-right: 10px;
           background-color:white;
+
+          span {
+            width: 45px;
+            height: 15px;
+            border-radius: 50px;
+            background-color: brown;
+            color: white;
+            padding: 3px 9px;
+            margin-left: 10px;
+            margin-right: -10px;
+          }
+
+          &.active {
+            display: inline;
+            list-style: none;
+            text-align: center;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            background-color: #084C7C;
+          }
         }
       }
 
