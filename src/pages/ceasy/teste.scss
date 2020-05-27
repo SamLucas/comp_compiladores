@@ -1,0 +1,182 @@
+div.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #084C7C;
+  height: 100vh;
+  padding: 20px 0px;
+  align-items: center;
+  justify-content: center;
+
+  textarea {
+    margin-top: 15px;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    background-color: #04263E;
+    color: white;
+    border-color: #1098F7;
+    resize: none;
+    padding: 10px 30px;
+    background: url(http://i.imgur.com/2cOaJ.png);
+    background-attachment: local;
+    background-repeat: no-repeat;
+  }
+
+  
+
+  div.header {
+    height: 10px;
+    flex: 0.1;
+    width: 100%;
+    padding: 5px 70px;
+    margin: 40px 0px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+      color: #DECCCC;
+      font-size: 50px;
+    }
+
+    p {
+      color: #DECCCC;
+    }
+
+    ul {
+      margin-left: 100px;
+      li {
+        list-style: none;
+        font-size: 15px;
+        padding: 20px;
+      }
+    }
+  }
+
+  div.section {
+    flex: 0.9;
+    width: 90vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+
+    div {
+      height: 68vh;
+      padding: 15px;
+      width: 50%;
+    }
+
+    div.code {
+      background-color: #000000;
+      border-radius: 15px;
+      display: block;
+      margin-right: 20px;
+
+      ul.Tab {
+        margin-top: 1x;
+        padding: 15px 0px;
+
+        li {
+          display: inline;
+          list-style: none;
+          text-align: center;
+          padding: 10px 25px;
+          text-decoration: none;
+          border-radius: 10px;
+          color: white;
+          cursor: pointer;
+          margin-right: 10px;
+          background-color: #1098F7;
+
+        }
+      }
+
+      div.contentTab {
+        width: 100%;
+      }
+    }
+
+    div.code_result {
+      background-color: #FFFFFF;
+      border-radius: 15px;
+      display: block;
+
+      textarea.result {
+        margin-top: 15px;
+        width: 100%;
+        height: 85%;
+        border-radius: 10px;
+        background-color: #04263E;
+        color: black;
+        border-color: #1098F7;
+        resize: none;
+        padding: 10px 30px;
+        background: url(http://i.imgur.com/2cOaJ.png);
+        background-attachment: local;
+        background-repeat: no-repeat;
+      }
+
+      table {
+        width: 100%;
+        // background-color: red;
+        
+        thead.headtable {
+          background-color: #cece;
+          
+          tr td {
+            padding: 10px 40px;
+          }
+        }
+
+        tbody {
+          tr td {
+          padding: 10px 5px;
+          }
+        }
+      }
+
+      ul.Tab {
+        margin-top: 1x;
+        padding: 15px 0px;
+
+        li.active {
+          display: inline;
+          list-style: none;
+          text-align: center;
+          padding: 10px 25px;
+          text-decoration: none;
+          border-radius: 10px;
+          color: white;
+          cursor: pointer;
+          margin-right: 10px;
+          background-color: #084C7C;
+        }
+
+        li {
+          display: inline;
+          list-style: none;
+          text-align: center;
+          padding: 10px 25px;
+          text-decoration: none;
+          border-radius: 10px;
+          color: black;
+          cursor: pointer;
+          margin-right: 10px;
+          background-color:white;
+        }
+      }
+
+      div.contentTab {
+        width: 100%;
+      }
+    }
+}
+
+  div.containerView {
+    background-color: white;
+    margin: 0px 20px;
+    border-radius: 15px;
+
+  }
+}
