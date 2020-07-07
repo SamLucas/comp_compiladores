@@ -7,6 +7,7 @@ import cseasyFile from "./styles_example.ceasy";
 export default function CeasyContent() {
   const [coreCeasy, setCoreCeasy] = useState("");
   const [codeCeasy, setCodeCeasy] = useState("");
+
   const [tokens, setTokens] = useState([]);
   const [errorInformation, setErrorInformation] = useState([]);
   const [codeCompilateCeasy, setCodeCompilateCeasy] = useState("");
@@ -64,6 +65,12 @@ export default function CeasyContent() {
           <ul className="Tab">
             <li className={"active"}>Ceasy</li>
           </ul>
+
+          <ul className="headerOptions">
+            <li>Import</li>
+            <li onClick={() => setCodeCeasy("")}>Limpar</li>
+          </ul>
+
           <textarea
             cols="30"
             rows="10"
@@ -113,49 +120,53 @@ export default function CeasyContent() {
               spellCheck="false"
             />
           ) : indexTab === 1 ? (
-            <table>
-              <thead className="headtable">
-                <tr>
-                  <td>Código</td>
-                  <td>Token</td>
-                  <td>Linhas</td>
-                </tr>
-              </thead>
-              <tbody>
-                {tokens.map((ele) => (
-                  <tr key={JSON.stringify(ele)}>
-                    <td>{ele.word}</td>
-                    <td>{ele.token}</td>
-                    <td>{ele.lines?.join(", ")}</td>
+            <div className="contentTable">
+              <table>
+                <thead className="headtable">
+                  <tr>
+                    <td>Código</td>
+                    <td>Token</td>
+                    <td>Linhas</td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {tokens.map((ele) => (
+                    <tr key={JSON.stringify(ele)}>
+                      <td>{ele.word}</td>
+                      <td>{ele.token}</td>
+                      <td>{ele.lines?.join(", ")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
-            <table>
-              <thead className="headtable">
-                <tr>
-                  <td>Linha</td>
-                  <td>Token</td>
-                  <td>Informação</td>
-                </tr>
-              </thead>
-              <tbody>
-                {errorInformation.map((ele) => (
-                  <tr key={JSON.stringify(ele)}>
-                    <td>{ele.line}</td>
-                    <td>{ele.errorToken}</td>
-                    <td>
-                      {ele.errorToken.indexOf("]") >= 0
-                        ? "Erro ao fechar."
-                        : ele.errorToken.indexOf("[") >= 0
-                        ? "Erro ao abrir."
-                        : "Erro inesperado."}
-                    </td>
+            <div className="contentTable">
+              <table>
+                <thead className="headtable">
+                  <tr>
+                    <td>Linha</td>
+                    <td>Token</td>
+                    <td>Informação</td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {errorInformation.map((ele) => (
+                    <tr key={JSON.stringify(ele)}>
+                      <td>{ele.line}</td>
+                      <td>{ele.errorToken}</td>
+                      <td>
+                        {ele.errorToken.indexOf("]") >= 0
+                          ? "Erro ao fechar."
+                          : ele.errorToken.indexOf("[") >= 0
+                          ? "Erro ao abrir."
+                          : "Erro inesperado."}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>

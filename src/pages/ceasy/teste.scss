@@ -2,7 +2,7 @@ div.container {
   display: flex;
   flex: 1;
   flex-direction: column;
-  background-color: #084C7C;
+  background-color: #084c7c;
   height: 100vh;
   padding: 20px 0px;
   align-items: center;
@@ -13,9 +13,9 @@ div.container {
     width: 100%;
     height: 85%;
     border-radius: 10px;
-    background-color: #04263E;
+    background-color: #04263e;
     color: white;
-    border-color: #1098F7;
+    border-color: #1098f7;
     resize: none;
     padding: 10px 30px;
     background: url(http://i.imgur.com/2cOaJ.png);
@@ -34,12 +34,12 @@ div.container {
     flex-direction: row;
 
     h1 {
-      color: #DECCCC;
+      color: #decccc;
       font-size: 50px;
     }
 
     p {
-      color: #DECCCC;
+      color: #decccc;
     }
 
     ul {
@@ -71,6 +71,18 @@ div.container {
       display: block;
       margin-right: 20px;
 
+      ul.headerOptions {
+        background-color: red;
+        display: inline-flex;
+        justify-content: end;
+
+        li {
+          color: white;
+          padding: 10px;
+          cursor: pointer;
+        }
+      }
+
       ul.Tab {
         margin-top: 1x;
         padding: 15px 0px;
@@ -85,7 +97,7 @@ div.container {
           color: white;
           cursor: pointer;
           margin-right: 10px;
-          background-color: #1098F7;
+          background-color: #1098f7;
         }
       }
 
@@ -95,40 +107,60 @@ div.container {
     }
 
     div.code_result {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       border-radius: 15px;
       display: block;
 
-      textarea.result {
-        margin-top: 15px;
+      div.contentTable {
+        overflow: auto;
         width: 100%;
-        height: 85%;
-        border-radius: 10px;
-        background-color: #04263E;
-        color: black;
-        border-color: #1098F7;
-        resize: none;
-        padding: 10px 30px;
-        background: url(http://i.imgur.com/2cOaJ.png);
-        background-attachment: local;
-        background-repeat: no-repeat;
-      }
+        height: 60vh;
 
-      table {
-        width: 100%;
-        // background-color: red;
-        
-        thead.headtable {
-          background-color: #cece;
-          
-          tr td {
-            padding: 10px 40px;
-          }
+        &::-webkit-scrollbar-track {
+          border: 1px solid black;
+          background-color: #f5f5f5;
         }
 
-        tbody {
-          tr td {
-            padding: 10px 5px;
+        &::-webkit-scrollbar {
+          width: 10px;
+          background-color: #f5f5f5;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #000000;
+        }
+
+        textarea.result {
+          margin-top: 15px;
+          width: 100%;
+          height: 85%;
+          border-radius: 10px;
+          background-color: #04263e;
+          color: black;
+          border-color: #1098f7;
+          resize: none;
+          padding: 10px 30px;
+          background: url(http://i.imgur.com/2cOaJ.png);
+          background-attachment: local;
+          background-repeat: no-repeat;
+        }
+
+        table {
+          width: 100%;
+          // background-color: red;
+
+          thead.headtable {
+            background-color: #cece;
+
+            tr td {
+              padding: 10px 40px;
+            }
+          }
+
+          tbody {
+            tr td {
+              padding: 10px 5px;
+            }
           }
         }
       }
@@ -136,7 +168,6 @@ div.container {
       ul.Tab {
         margin-top: 1x;
         padding: 15px 0px;
-
 
         li {
           display: inline;
@@ -148,7 +179,7 @@ div.container {
           color: black;
           cursor: pointer;
           margin-right: 10px;
-          background-color:white;
+          background-color: white;
 
           span {
             width: 45px;
@@ -171,7 +202,7 @@ div.container {
             color: white;
             cursor: pointer;
             margin-right: 10px;
-            background-color: #084C7C;
+            background-color: #084c7c;
           }
         }
       }
@@ -180,12 +211,11 @@ div.container {
         width: 100%;
       }
     }
-}
+  }
 
   div.containerView {
     background-color: white;
     margin: 0px 20px;
     border-radius: 15px;
-
   }
 }
