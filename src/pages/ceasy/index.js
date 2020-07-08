@@ -8,6 +8,8 @@ export default function CeasyContent() {
   const [coreCeasy, setCoreCeasy] = useState("");
   const [codeCeasy, setCodeCeasy] = useState("");
 
+  const [contentFile, setContentFile] = useState();
+
   const [tokens, setTokens] = useState([]);
   const [errorInformation, setErrorInformation] = useState([]);
   const [codeCompilateCeasy, setCodeCompilateCeasy] = useState("");
@@ -23,6 +25,17 @@ export default function CeasyContent() {
     };
     loadScript();
   }, []);
+
+  const loadFileImport = async (contentFileSend) => {
+    // console.log(contentFileSend);
+    const cseasy = Ceasy();
+    const stringFile = await cseasy.readFile(contentFileSend);
+    setCodeCeasy(stringFile);
+  };
+
+  useEffect(() => {
+    contentFile && loadFileImport(contentFile);
+  }, [contentFile]);
 
   const debounceEvent = (fn, params, wait = 1000, time) => {
     clearTimeout(
@@ -62,14 +75,25 @@ export default function CeasyContent() {
       </div>
       <div className="section">
         <div className="code">
-          <ul className="Tab">
-            <li className={"active"}>Ceasy</li>
-          </ul>
+          <div className="headerCode">
+            <ul className="Tab">
+              <li className={"active"}>Ceasy</li>
+            </ul>
 
-          <ul className="headerOptions">
-            <li>Import</li>
-            <li onClick={() => setCodeCeasy("")}>Limpar</li>
-          </ul>
+            <ul className="headerOptions">
+              <li onClick={() => setCodeCeasy("")}>Limpar</li>
+              <li>
+                <input
+                  type="file"
+                  name="import"
+                  id="import"
+                  style={{ display: "none" }}
+                  onChange={(e) => setContentFile(e.target.files[0])}
+                />
+                <label htmlFor="import">Import</label>
+              </li>
+            </ul>
+          </div>
 
           <textarea
             cols="30"

@@ -71,15 +71,29 @@ div.container {
       display: block;
       margin-right: 20px;
 
-      ul.headerOptions {
-        background-color: red;
-        display: inline-flex;
-        justify-content: end;
+      div.headerCode {
+        display: flex;
+        justify-content: space-between;
 
-        li {
-          color: white;
-          padding: 10px;
+        height: 70px;
+        width: 100%;
+
+        ul.headerOptions {
+          position: relative;
+
+          list-style: none;
+          display: inline-flex;
+
           cursor: pointer;
+
+          li {
+            color: white;
+            padding: 10px;
+
+            label {
+              cursor: pointer;
+            }
+          }
         }
       }
 
