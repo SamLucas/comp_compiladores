@@ -125,6 +125,21 @@ div.container {
       border-radius: 15px;
       display: block;
 
+      textarea.result {
+        margin-top: 15px;
+        width: 100%;
+        height: 85%;
+        border-radius: 10px;
+        background-color: #04263e;
+        color: black;
+        border-color: #1098f7;
+        resize: none;
+        padding: 10px 30px;
+        background: url(http://i.imgur.com/2cOaJ.png);
+        background-attachment: local;
+        background-repeat: no-repeat;
+      }
+
       div.contentTable {
         overflow: auto;
         width: 100%;
@@ -142,21 +157,6 @@ div.container {
 
         &::-webkit-scrollbar-thumb {
           background-color: #000000;
-        }
-
-        textarea.result {
-          margin-top: 15px;
-          width: 100%;
-          height: 85%;
-          border-radius: 10px;
-          background-color: #04263e;
-          color: black;
-          border-color: #1098f7;
-          resize: none;
-          padding: 10px 30px;
-          background: url(http://i.imgur.com/2cOaJ.png);
-          background-attachment: local;
-          background-repeat: no-repeat;
         }
 
         table {

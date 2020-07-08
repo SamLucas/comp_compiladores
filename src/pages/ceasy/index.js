@@ -92,7 +92,7 @@ export default function CeasyContent() {
                   style={{ display: "none" }}
                   onChange={(e) => setContentFile(e.target.files[0])}
                 />
-                <label htmlFor="import">Import</label>
+                <label htmlFor="import">Importar</label>
               </li>
             </ul>
           </div>
