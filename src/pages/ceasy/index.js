@@ -29,7 +29,9 @@ export default function CeasyContent() {
   const loadFileImport = async (contentFileSend) => {
     // console.log(contentFileSend);
     const cseasy = Ceasy();
-    const stringFile = await cseasy.readFile(contentFileSend);
+    const content = URL.createObjectURL(contentFileSend);
+    const stringFile = await cseasy.readFile(content);
+
     setCodeCeasy(stringFile);
   };
 
