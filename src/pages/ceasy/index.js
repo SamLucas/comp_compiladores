@@ -67,6 +67,15 @@ export default function CeasyContent() {
     debounceEvent(loadCore, codeCeasy, 2000);
   }, [codeCeasy, coreCeasy]);
 
+  const downloadFile = () => {
+    const element = document.createElement("a");
+    const file = new Blob([codeCeasy], { type: "text/plain" });
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.txt";
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -94,6 +103,7 @@ export default function CeasyContent() {
                 />
                 <label htmlFor="import">Importar</label>
               </li>
+              <li onClick={downloadFile}>Salvar</li>
             </ul>
           </div>
 
